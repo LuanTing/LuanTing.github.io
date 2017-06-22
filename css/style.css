@@ -310,12 +310,11 @@ body {
 #header {
   height: 400px;
   position: relative;
-  border-bottom: 1px solid #ddd;
-  background-color: #159957;
-  background-image: -webkit-linear-gradient(330deg, #155799, #159957);
-  background-image: -moz-linear-gradient(330deg, #155799, #159957);
-  background-image: -ms-linear-gradient(330deg, #155799, #159957);
-  background-image: linear-gradient(120deg, #155799, #159957);
+  background-color: #ee82ee;
+  background-image: -webkit-linear-gradient(left, #ffa500, #ff69b4, #ee82ee);
+  background-image: -moz-linear-gradient(left, #ffa500, #ff69b4, #ee82ee);
+  background-image: -ms-linear-gradient(left, #ffa500, #ff69b4, #ee82ee);
+  background-image: linear-gradient(to right, #ffa500, #ff69b4, #ee82ee);
 }
 #header:before,
 #header:after {
