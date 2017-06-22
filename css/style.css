@@ -518,7 +518,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #ffa500;
+  color: #ee82ee;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -526,7 +526,7 @@ body {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #ee82ee;
+  color: #ffa500;
 }
 .article-entry {
   color: #555;
