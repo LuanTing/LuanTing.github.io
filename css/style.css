@@ -526,7 +526,7 @@ body {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #258fb8;
+  color: #ee82ee;
 }
 .article-entry {
   color: #555;
@@ -563,7 +563,7 @@ a.article-title:hover {
   margin: 1.1em 0;
 }
 .article-entry a {
-  color: #258fb8;
+  color: #ee82ee;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -662,10 +662,10 @@ a.article-title:hover {
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #258fb8;
+  background: #ee82ee;
   color: #fff;
   text-decoration: none;
-  text-shadow: 0 1px #1e7293;
+  text-shadow: 0 1px #e541e5;
 }
 .article-footer {
   font-size: 0.85em;
@@ -928,7 +928,7 @@ a.article-title:hover {
   margin: 50px 0;
 }
 #comments a {
-  color: #258fb8;
+  color: #ee82ee;
 }
 .archives-wrap {
   margin: 50px 0;
@@ -976,7 +976,7 @@ a.article-title:hover {
 .archive-article-title {
   text-decoration: none;
   font-weight: bold;
-  color: #555;
+  color: #ffa500;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -984,13 +984,13 @@ a.article-title:hover {
   line-height: 1.6em;
 }
 .archive-article-title:hover {
-  color: #258fb8;
+  color: #ee82ee;
 }
 .archive-article-footer {
   margin-top: 1em;
 }
 .archive-article-date {
-  color: #999;
+  color: #ee82ee;
   text-decoration: none;
   font-size: 0.85em;
   line-height: 1em;
@@ -1053,15 +1053,15 @@ a.article-title:hover {
 }
 #footer {
   background-color: #ee82ee;
-  background-image: -webkit-linear-gradient(bottom, #ffa500, #ee82ee);
-  background-image: -moz-linear-gradient(bottom, #ffa500, #ee82ee);
-  background-image: -ms-linear-gradient(bottom, #ffa500, #ee82ee);
-  background-image: linear-gradient(to top, #ffa500, #ee82ee);
+  background-image: -webkit-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: -moz-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: -ms-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: linear-gradient(to right, #ffa500, #ee82ee);
   padding: 50px 0;
   color: #fff;
 }
 #footer a {
-  color: #258fb8;
+  color: #ee82ee;
   text-decoration: none;
 }
 #footer a:hover {
@@ -1182,7 +1182,7 @@ a.article-title:hover {
   margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #258fb8;
+  color: #ee82ee;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -1289,7 +1289,7 @@ pre .javascript .function {
   border-radius: 3px;
 }
 .widget a {
-  color: #258fb8;
+  color: #ffa500;
   text-decoration: none;
 }
 .widget a:hover {
