@@ -1073,11 +1073,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background-color: #ee82ee;
-  background-image: -webkit-linear-gradient(left, #ffa500, #ee82ee);
-  background-image: -moz-linear-gradient(left, #ffa500, #ee82ee);
-  background-image: -ms-linear-gradient(left, #ffa500, #ee82ee);
-  background-image: linear-gradient(to right, #ffa500, #ee82ee);
+  background: #ddd;
   margin: 0 -20px;
   padding: 15px 20px;
   border: 1px solid #ccc;
