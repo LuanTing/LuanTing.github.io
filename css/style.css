@@ -1052,10 +1052,13 @@ a.article-title:hover {
   color: #ddd;
 }
 #footer {
-  background: #ee82ee;
+  background-color: #ee82ee;
+  background-image: -webkit-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: -moz-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: -ms-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: linear-gradient(to right, #ffa500, #ee82ee);
   padding: 50px 0;
-  border-top: 1px solid #ddd;
-  color: #999;
+  color: #fff;
 }
 #footer a {
   color: #258fb8;
