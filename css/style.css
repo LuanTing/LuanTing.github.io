@@ -518,7 +518,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #555;
+  color: #ffa500;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -990,7 +990,7 @@ a.article-title:hover {
   margin-top: 1em;
 }
 .archive-article-date {
-  color: #ee82ee;
+  color: #999;
   text-decoration: none;
   font-size: 0.85em;
   line-height: 1em;
@@ -1000,9 +1000,9 @@ a.article-title:hover {
 #page-nav {
   margin: 50px auto;
   background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
-  border: 1px solid #ddd;
+  -webkit-box-shadow: 1px 2px 3px #ffa500;
+  box-shadow: 1px 2px 3px #ffa500;
+  border: 1px solid #ffa500;
   border-radius: 3px;
   text-align: center;
   color: #999;
