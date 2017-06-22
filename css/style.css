@@ -1052,11 +1052,7 @@ a.article-title:hover {
   color: #ddd;
 }
 #footer {
-  background-color: #ee82ee;
-  background-image: -webkit-linear-gradient(left, #ffa500, #ee82ee);
-  background-image: -moz-linear-gradient(left, #ffa500, #ee82ee);
-  background-image: -ms-linear-gradient(left, #ffa500, #ee82ee);
-  background-image: linear-gradient(to right, #ffa500, #ee82ee);
+  background: #f79476;
   padding: 50px 0;
   color: #fff;
 }
@@ -1076,7 +1072,7 @@ a.article-title:hover {
   background: #ddd;
   margin: 0 -20px;
   padding: 15px 20px;
-  border: 1px solid #ffa500;
+  border: 1px solid #f79476;
   overflow: auto;
   color: #666;
   line-height: 32px;
