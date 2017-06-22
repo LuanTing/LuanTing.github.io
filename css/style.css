@@ -311,10 +311,10 @@ body {
   height: 400px;
   position: relative;
   background-color: #ee82ee;
-  background-image: -webkit-linear-gradient(left, #ffa500, #ff69b4, #ee82ee);
-  background-image: -moz-linear-gradient(left, #ffa500, #ff69b4, #ee82ee);
-  background-image: -ms-linear-gradient(left, #ffa500, #ff69b4, #ee82ee);
-  background-image: linear-gradient(to right, #ffa500, #ff69b4, #ee82ee);
+  background-image: -webkit-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: -moz-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: -ms-linear-gradient(left, #ffa500, #ee82ee);
+  background-image: linear-gradient(to right, #ffa500, #ee82ee);
 }
 #header:before,
 #header:after {
