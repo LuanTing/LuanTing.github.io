@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -88,7 +88,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在<a href="/RAIL评估模型.md">RAIL评估模型</a>中我们提到<strong>Load</strong>要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指<strong>优化关键渲染路径</strong>。<strong>优化关键渲染路径</strong>就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。</p>
+        <p>在<a href="./RAIL评估模型.md">RAIL评估模型</a>中我们提到<strong>Load</strong>要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指<strong>优化关键渲染路径</strong>。<strong>优化关键渲染路径</strong>就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。</p>
 <h2 id="1-什么是关键渲染路径？"><a href="#1-什么是关键渲染路径？" class="headerlink" title="1.什么是关键渲染路径？"></a>1.什么是关键渲染路径？</h2><p>从收到HTML,CSS,JavaScript到进行处理，从而转变成渲染像素这一过程中的<strong>中间步骤</strong>就是<strong>关键渲染路径</strong>。</p>
 <p>  关键渲染路经主要包括：   </p>
 <ul>
@@ -99,16 +99,16 @@
 <li><strong>绘制</strong>。</li>
 </ul>
 <p>而我们要做的优化便是：<strong>最大限度缩短执行上述步骤消耗的总时间</strong>。</p>
-<h2 id="2-关键渲染路径的执行过程"><a href="#2-关键渲染路径的执行过程" class="headerlink" title="2.关键渲染路径的执行过程"></a>2.关键渲染路径的执行过程</h2><p><img src="/2017/08/21/性能优化之优化关键渲染路径/1.PNG" alt="渲染路径示意图"></p>
+<h2 id="2-关键渲染路径的执行过程"><a href="#2-关键渲染路径的执行过程" class="headerlink" title="2.关键渲染路径的执行过程"></a>2.关键渲染路径的执行过程</h2><p><img src="./性能优化之优化关键渲染路径/1.PNG" alt="渲染路径示意图"></p>
 <p>首先，由上图可知，从浏览器获取到HTML文件，便开始对其进行解析准备构建DOM树，但是在如果在解析的过程中遇到了CSS和JavaScript(无论内联还是外联)，那么这时DOM树会暂时停下来等待加载CSS一直到CSSOM树建立好，之后是加载JavaScript，执行JS，之后继续进行DOM树的建立，之后是渲染书建立，之后进行布局，绘制。<br>这里蓝色框代表<strong>关键资源</strong>，关键资源字节总数为<strong>关键字节数</strong>，<strong>关键路径长度</strong>与关键字节数大小有关。</p>
 <h2 id="如何优化关键渲染路径？"><a href="#如何优化关键渲染路径？" class="headerlink" title="如何优化关键渲染路径？"></a>如何优化关键渲染路径？</h2><p>根据<strong>关键渲染路径</strong>的执行过程，我们对症下药，一般进行优化方法有：   </p>
 <ol>
-<li>为<strong>非必需CSS</strong>设置媒体类型和媒体查询，这样只有符合媒体条件时才会加载，这样可以在首次渲染时，减少阻塞时间。如图：<img src="/2017/08/21/性能优化之优化关键渲染路径/3.PNG" alt="3"><br>比如，此时因为CSS样式媒体类型查询设为<strong>media=print</strong>,所以，此时CSS也不再成为渲染的阻塞。</li>
+<li>为<strong>非必需CSS</strong>设置媒体类型和媒体查询，这样只有符合媒体条件时才会加载，这样可以在首次渲染时，减少阻塞时间。如图：<img src="./性能优化之优化关键渲染路径/3.PNG" alt="3"><br>比如，此时因为CSS样式媒体类型查询设为<strong>media=print</strong>,所以，此时CSS也不再成为渲染的阻塞。</li>
 <li>将CSS置于文档<code>&lt;head&gt;&lt;/head&gt;</code>内，可尽早发出CSS请求。</li>
 <li>避免使用CSS <code>@import</code>,因为其会增加关键路径中的往返次数。</li>
 <li>内联关键CSS。</li>
-<li>首选<code>&lt;script&gt;</code>标签添加异步关键字的JavaScript资源。如图：<img src="/2017/08/21/性能优化之优化关键渲染路径/2.PNG" alt="2"><br>此时，因为JS不是首次渲染的关键资源，变为异步加载后，浏览器在等待脚本可用期间不会阻止DOM树。即此时JS已经不算是关键资源。</li>
-<li>优化<strong>关键字节</strong>数以缩短下载时间。即，采用<a href="/性能优化之优化加载资源.md">优化加载资源</a>的方法去优化关键字节数。</li>
+<li>首选<code>&lt;script&gt;</code>标签添加异步关键字的JavaScript资源。如图：<img src="./性能优化之优化关键渲染路径/2.PNG" alt="2"><br>此时，因为JS不是首次渲染的关键资源，变为异步加载后，浏览器在等待脚本可用期间不会阻止DOM树。即此时JS已经不算是关键资源。</li>
+<li>优化<strong>关键字节</strong>数以缩短下载时间。即，采用<a href="./性能优化之优化加载资源.md">优化加载资源</a>的方法去优化关键字节数。</li>
 <li>优化<strong>关键资源</strong>的加载顺序，今早下载所有关键资源，以缩短关键路径长度。   </li>
 </ol>
 <p> 注释：</p>
@@ -121,7 +121,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/21/性能优化之优化关键渲染路径/" data-id="cj6m50cgu00012omg8cxisd7x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/21/性能优化之优化关键渲染路径/" data-id="cj6m57o42000198mghirzswdd" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渲染路径/">渲染路径</a></li></ul>
@@ -174,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/性能优化之优化加载资源/" data-id="cj6m50cgu00032omge2y8fzyk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/20/性能优化之优化加载资源/" data-id="cj6m57o4i000398mg1ilh7st6" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/压缩与缓存/">压缩与缓存</a></li></ul>
@@ -233,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/19/RAIL评估模型/" data-id="cj6m50cge00002omg9kj4cwjl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/19/RAIL评估模型/" data-id="cj6m57o42000098mgymb0jg3e" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RAIL模型/">RAIL模型</a></li></ul>
@@ -255,7 +255,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAIL模型/">RAIL模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/压缩与缓存/">压缩与缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渲染路径/">渲染路径</a></li></ul>
     </div>
@@ -265,7 +265,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/RAIL模型/" style="font-size: 10px;">RAIL模型</a> <a href="/tags/压缩与缓存/" style="font-size: 10px;">压缩与缓存</a> <a href="/tags/渲染路径/" style="font-size: 10px;">渲染路径</a>
     </div>
@@ -284,7 +284,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -313,7 +313,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Luan Ting<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
