@@ -6,13 +6,13 @@
   <title>性能优化之优化加载资源 | Luan Ting&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一个网页的加载一般都需要加载：HTML，CSS，JavaScript，图像等资源。资源总字节越大，则需要请求的次数就会越多，加载资源所需要的时间也会越长。因此，根据RAIL评估模型，我们想要在尽量在1s内加载完成网站，就必须要优化我们的加载资源，尽量减少下载次数。 优化加载资源主要有： 避免不必要的下载 资源的压缩和优化 HTTP缓存，减少下载次数1.避免不必要的下载   查看网页自有资源和第三方">
-<meta name="keywords" content="数据压缩，图片优化，字体优化，HTTP缓存">
+<meta name="keywords" content="压缩与缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="性能优化之优化加载资源">
 <meta property="og:url" content="http://yoursite.com/2017/08/20/性能优化之优化加载资源/index.html">
 <meta property="og:site_name" content="Luan Ting&#39;s Blog">
 <meta property="og:description" content="一个网页的加载一般都需要加载：HTML，CSS，JavaScript，图像等资源。资源总字节越大，则需要请求的次数就会越多，加载资源所需要的时间也会越长。因此，根据RAIL评估模型，我们想要在尽量在1s内加载完成网站，就必须要优化我们的加载资源，尽量减少下载次数。 优化加载资源主要有： 避免不必要的下载 资源的压缩和优化 HTTP缓存，减少下载次数1.避免不必要的下载   查看网页自有资源和第三方">
-<meta property="og:updated_time" content="2017-08-20T07:46:42.423Z">
+<meta property="og:updated_time" content="2017-08-21T07:46:59.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能优化之优化加载资源">
 <meta name="twitter:description" content="一个网页的加载一般都需要加载：HTML，CSS，JavaScript，图像等资源。资源总字节越大，则需要请求的次数就会越多，加载资源所需要的时间也会越长。因此，根据RAIL评估模型，我们想要在尽量在1s内加载完成网站，就必须要优化我们的加载资源，尽量减少下载次数。 优化加载资源主要有： 避免不必要的下载 资源的压缩和优化 HTTP缓存，减少下载次数1.避免不必要的下载   查看网页自有资源和第三方">
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一个网页的加载一般都需要加载：<code>HTML</code>，<code>CSS</code>，<code>JavaScript</code>，<code>图像</code>等资源。资源总字节越大，则需要请求的次数就会越多，加载资源所需要的时间也会越长。因此，根据RAIL评估模型，我们想要在尽量在1s内加载完成网站，就必须要优化我们的加载资源，尽量减少下载次数。</p>
+        <p>一个网页的加载一般都需要加载：<strong>HTML</strong>，<strong>CSS</strong>，<strong>JavaScript</strong>，<strong>图像</strong>等资源。资源总字节越大，则需要请求的次数就会越多，加载资源所需要的时间也会越长。因此，根据RAIL评估模型，我们想要在尽量在1s内加载完成网站，就必须要优化我们的加载资源，尽量减少下载次数。</p>
 <h2 id="优化加载资源主要有："><a href="#优化加载资源主要有：" class="headerlink" title="优化加载资源主要有："></a>优化加载资源主要有：</h2><ol>
 <li><h3 id="避免不必要的下载"><a href="#避免不必要的下载" class="headerlink" title="避免不必要的下载"></a>避免不必要的下载</h3></li>
 <li><h3 id="资源的压缩和优化"><a href="#资源的压缩和优化" class="headerlink" title="资源的压缩和优化"></a>资源的压缩和优化</h3></li>
@@ -99,27 +99,36 @@
 </ol>
 <ul>
 <li>查看网页自有资源和第三方资源，权衡它带来的价值和对网页性能影响的比来决定是否要保留这些资源。<h2 id="2-资源的压缩和优化"><a href="#2-资源的压缩和优化" class="headerlink" title="2.资源的压缩和优化"></a>2.资源的压缩和优化</h2></li>
-<li>启用<code>GZIP</code>压缩。</li>
+<li>启用<strong>GZIP</strong>压缩。</li>
 <li>对CSS，JS，HTML文件进行内容特定优化，比如：删掉注释减小网页大小，将CSS中重复选择器合折叠为一个，删除制表符和空格。</li>
 <li>如果可以的话尽量多利用CSS3效果来代替图像。<h2 id="3-HTTP缓存，减少下载次数"><a href="#3-HTTP缓存，减少下载次数" class="headerlink" title="3.HTTP缓存，减少下载次数"></a>3.HTTP缓存，减少下载次数</h2></li>
-<li>确保服务器提供<code>ETag</code>:有了ETag,当服务器上的资源未发生变化时，可避免下载。</li>
+<li>确保服务器提供<strong>ETag</strong>:有了ETag,当服务器上的资源未发生变化时，可避免下载。</li>
 <li>确定中间缓存资源。</li>
-<li>为缓存资源确定适合的<code>max-age</code>时长，单位是<code>秒</code>。</li>
+<li>为缓存资源确定适合的<strong>max-age</strong>时长，单位是<strong>秒</strong>。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/性能优化之优化加载资源/" data-id="cj6kfkgey00015cmgjsfuhfjn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/20/性能优化之优化加载资源/" data-id="cj6m50cgu00032omge2y8fzyk" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据压缩，图片优化，字体优化，HTTP缓存/">数据压缩，图片优化，字体优化，HTTP缓存</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/压缩与缓存/">压缩与缓存</a></li></ul>
 
     </footer>
   </div>
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/08/21/性能优化之优化关键渲染路径/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          性能优化之优化关键渲染路径
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/19/RAIL评估模型/" id="article-nav-older" class="article-nav-link-wrap">
@@ -143,7 +152,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAIL模型/">RAIL模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据压缩，图片优化，字体优化，HTTP缓存/">数据压缩，图片优化，字体优化，HTTP缓存</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAIL模型/">RAIL模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/压缩与缓存/">压缩与缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渲染路径/">渲染路径</a></li></ul>
     </div>
   </div>
 
@@ -153,7 +162,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/RAIL模型/" style="font-size: 10px;">RAIL模型</a> <a href="/tags/数据压缩，图片优化，字体优化，HTTP缓存/" style="font-size: 10px;">数据压缩，图片优化，字体优化，HTTP缓存</a>
+      <a href="/tags/RAIL模型/" style="font-size: 10px;">RAIL模型</a> <a href="/tags/压缩与缓存/" style="font-size: 10px;">压缩与缓存</a> <a href="/tags/渲染路径/" style="font-size: 10px;">渲染路径</a>
     </div>
   </div>
 
@@ -173,6 +182,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/08/21/性能优化之优化关键渲染路径/">性能优化之优化关键渲染路径</a>
+          </li>
         
           <li>
             <a href="/2017/08/20/性能优化之优化加载资源/">性能优化之优化加载资源</a>
