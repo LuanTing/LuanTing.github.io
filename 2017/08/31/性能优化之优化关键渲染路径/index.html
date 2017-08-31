@@ -3,14 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Luan Ting&#39;s Blog</title>
+  <title>性能优化之优化关键渲染路径 | Luan Ting&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Luan Ting&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在RAIL评估模型中我们提到Load要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指优化关键渲染路径。优化关键渲染路径就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。 1.什么是关键渲染路径？从收到HTML,CSS,JavaScript到进行处理，从而转变成渲染像素这一过程中的中间步骤就是关键渲染路径。   关键渲染路经主要包">
+<meta name="keywords" content="渲染路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="性能优化之优化关键渲染路径">
+<meta property="og:url" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/index.html">
 <meta property="og:site_name" content="Luan Ting&#39;s Blog">
+<meta property="og:description" content="在RAIL评估模型中我们提到Load要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指优化关键渲染路径。优化关键渲染路径就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。 1.什么是关键渲染路径？从收到HTML,CSS,JavaScript到进行处理，从而转变成渲染像素这一过程中的中间步骤就是关键渲染路径。   关键渲染路经主要包">
+<meta property="og:image" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/1.PNG">
+<meta property="og:image" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/2.PNG">
+<meta property="og:updated_time" content="2017-08-31T09:11:04.275Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luan Ting&#39;s Blog">
+<meta name="twitter:title" content="性能优化之优化关键渲染路径">
+<meta name="twitter:description" content="在RAIL评估模型中我们提到Load要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指优化关键渲染路径。优化关键渲染路径就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。 1.什么是关键渲染路径？从收到HTML,CSS,JavaScript到进行处理，从而转变成渲染像素这一过程中的中间步骤就是关键渲染路径。   关键渲染路经主要包">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/1.PNG">
   
     <link rel="alternate" href="/atom.xml" title="Luan Ting&#39;s Blog" type="application/atom+xml">
   
@@ -64,9 +72,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-性能优化之优化关键渲染路径" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-性能优化之优化关键渲染路径" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/31/性能优化之优化关键渲染路径/" class="article-date">
   <time datetime="2017-08-31T08:36:10.000Z" itemprop="datePublished">2017-08-31</time>
@@ -79,8 +85,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/31/性能优化之优化关键渲染路径/">性能优化之优化关键渲染路径</a>
+    <h1 class="article-title" itemprop="name">
+      性能优化之优化关键渲染路径
     </h1>
   
 
@@ -135,122 +141,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-性能优化之优化加载资源" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/20/性能优化之优化加载资源/" class="article-date">
-  <time datetime="2017-08-20T06:12:47.000Z" itemprop="datePublished">2017-08-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/性能优化之优化加载资源/">性能优化之优化加载资源</a>
-    </h1>
+    <a href="/2017/08/20/性能优化之优化加载资源/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">性能优化之优化加载资源</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个网页的加载一般都需要加载：<strong>HTML</strong>，<strong>CSS</strong>，<strong>JavaScript</strong>，<strong>图像</strong>等资源。资源总字节越大，则需要请求的次数就会越多，加载资源所需要的时间也会越长。因此，根据RAIL评估模型，我们想要在尽量在1s内加载完成网站，就必须要优化我们的加载资源，尽量减少下载次数。</p>
-<h2 id="优化加载资源主要有："><a href="#优化加载资源主要有：" class="headerlink" title="优化加载资源主要有："></a>优化加载资源主要有：</h2><ol>
-<li><h3 id="避免不必要的下载"><a href="#避免不必要的下载" class="headerlink" title="避免不必要的下载"></a>避免不必要的下载</h3></li>
-<li><h3 id="资源的压缩和优化"><a href="#资源的压缩和优化" class="headerlink" title="资源的压缩和优化"></a>资源的压缩和优化</h3></li>
-<li><h3 id="HTTP缓存，减少下载次数"><a href="#HTTP缓存，减少下载次数" class="headerlink" title="HTTP缓存，减少下载次数"></a>HTTP缓存，减少下载次数</h3><h2 id="1-避免不必要的下载"><a href="#1-避免不必要的下载" class="headerlink" title="1.避免不必要的下载"></a>1.避免不必要的下载</h2></li>
-</ol>
-<ul>
-<li>查看网页自有资源和第三方资源，权衡它带来的价值和对网页性能影响的比来决定是否要保留这些资源。<h2 id="2-资源的压缩和优化"><a href="#2-资源的压缩和优化" class="headerlink" title="2.资源的压缩和优化"></a>2.资源的压缩和优化</h2></li>
-<li>启用<strong>GZIP</strong>压缩。</li>
-<li>对CSS，JS，HTML文件进行内容特定优化，比如：删掉注释减小网页大小，将CSS中重复选择器合折叠为一个，删除制表符和空格。</li>
-<li>如果可以的话尽量多利用CSS3效果来代替图像。<h2 id="3-HTTP缓存，减少下载次数"><a href="#3-HTTP缓存，减少下载次数" class="headerlink" title="3.HTTP缓存，减少下载次数"></a>3.HTTP缓存，减少下载次数</h2></li>
-<li>确保服务器提供<strong>ETag</strong>:有了ETag,当服务器上的资源未发生变化时，可避免下载。</li>
-<li>确定中间缓存资源。</li>
-<li>为缓存资源确定适合的<strong>max-age</strong>时长，单位是<strong>秒</strong>。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/性能优化之优化加载资源/" data-id="cj708fj860003ekmgofjqglb2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/压缩与缓存/">压缩与缓存</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-RAIL评估模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/19/RAIL评估模型/" class="article-date">
-  <time datetime="2017-08-19T09:45:54.000Z" itemprop="datePublished">2017-08-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/19/RAIL评估模型/">RAIL评估模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我们想要优化我们的网站的时候，一个评估标准能很好的为我们指明优化的方向。如今各行各业都围绕<strong>以用户为中心</strong>。对于前端工程师来说，<strong>以用户为中心</strong>追求的并不是网站在任何特定设备上都可以运行很快，而追求的是用户的满意。所以目前对于网站优化评估标准，前端工程师比较崇尚的是<strong>RAIL</strong>模型。<strong>RAIL</strong>便是一种以用户为中心的模型。</p>
-<h2 id="1-用户对于网站延迟的反应"><a href="#1-用户对于网站延迟的反应" class="headerlink" title="1.用户对于网站延迟的反应"></a>1.用户对于网站延迟的反应</h2><ul>
-<li>0-16ms：动画的一帧渲染不大于<strong>16ms</strong>时，用户会感觉动画是流畅的。</li>
-<li>0-100ms：当用户进行操作时，<strong>100ms</strong>内窗口响应用户操作，用户会有一种立即获得结果的感觉。</li>
-<li>100-300ms：用户可能微微察觉到一点延迟。</li>
-<li>300-1000ms：此时长范围是用户能接受的页面的加载或者视图的改变所用时长。</li>
-<li>1000+ms:用户的注意力将离开正在执行的任务。</li>
-<li>10000+ms:用户已经没有耐心等待下去。<h2 id="2-什么是RAIL模型"><a href="#2-什么是RAIL模型" class="headerlink" title="2.什么是RAIL模型"></a>2.什么是RAIL模型</h2></li>
-<li>R代表：Respponse,即”响应“的意思。一般指的是用户输入网页快速给出结果的过程，比如点击按钮，切换表单，启动动画之类的。</li>
-<li>A代表：Animation，即”动画“的意思。指的是涉及style，layout，paint，composite过程的行为。比如：用户滚动页面，拖动刷新，页面动画等。</li>
-<li>I代表：Idle，即”空闲“的意思。一般指用户看到网页到他们进行操作这一无交互时间段。</li>
-<li>L代表：Load，即”加载“的意思。一般指网页加载这一段时间。<h3 id="以上分别代表了网络应用有关其生命周期的四个不同的方面。"><a href="#以上分别代表了网络应用有关其生命周期的四个不同的方面。" class="headerlink" title="以上分别代表了网络应用有关其生命周期的四个不同的方面。"></a>以上分别代表了网络应用有关其生命周期的四个不同的方面。</h3><h2 id="3-RAIL评估标准"><a href="#3-RAIL评估标准" class="headerlink" title="3.RAIL评估标准"></a>3.RAIL评估标准</h2><h3 id="结合RAIL模型和用户对于延迟的反应，我们可以得到评估指标，如下："><a href="#结合RAIL模型和用户对于延迟的反应，我们可以得到评估指标，如下：" class="headerlink" title="结合RAIL模型和用户对于延迟的反应，我们可以得到评估指标，如下："></a>结合<code>RAIL模型</code>和<code>用户对于延迟的反应</code>，我们可以得到评估指标，如下：</h3></li>
-</ul>
-<hr>
-<ul>
-<li>R（响应)<100ms。 即，当用户点击按钮后，`尽量`(可以理解有些操作实在很难做到100ms内响应)在100ms的时间内要响应用户。一般对于="">500ms才能完成的操作，最好给用户一些提示。</100ms。></li>
-<li>A（动画）&lt;16ms/帧。<br>但由于浏览器绘制新帧到屏幕上需要时间，所以其实真正的每帧动画能用的时间只有10ms。</li>
-<li>I（空闲）&lt;50ms。<br>一般空闲时间是有100ms，这段时间可以用来完成加载网页时非必需的加载，但是必须在50ms内将控制返回给主线程。</li>
-<li>L（加载）&lt;1000ms。<br>即，在1s内加载网页，无需加载所有，在满足用户需求下只需加载关键资源，从而使用户获得较好的网络体验。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/19/RAIL评估模型/" data-id="cj708fj7q0000ekmg9b2l3d0a" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RAIL模型/">RAIL模型</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
