@@ -15,7 +15,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/1.PNG">
 <meta property="og:image" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/3.PNG">
 <meta property="og:image" content="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/2.PNG">
-<meta property="og:updated_time" content="2017-08-31T09:19:19.565Z">
+<meta property="og:updated_time" content="2017-08-31T09:25:36.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能优化之优化关键渲染路径">
 <meta name="twitter:description" content="在RAIL评估模型中我们提到Load要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指优化关键渲染路径。优化关键渲染路径就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。 1.什么是关键渲染路径？从收到HTML,CSS,JavaScript到进行处理，从而转变成渲染像素这一过程中的中间步骤就是关键渲染路径。   关键渲染路经主要包">
@@ -95,7 +95,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在<a href="./RAIL评估模型.md">RAIL评估模型</a>中我们提到<strong>Load</strong>要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指<strong>优化关键渲染路径</strong>。<strong>优化关键渲染路径</strong>就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。</p>
+        <p>在<a href="/2017/08/19/RAIL评估模型/" title="RAIL评估模型">RAIL评估模型</a>中我们提到<strong>Load</strong>要求网页1秒内加载完成，无需加载所有资源，在满足用户需求的前提下有些资源可延迟加载。其实就是指<strong>优化关键渲染路径</strong>。<strong>优化关键渲染路径</strong>就是优先显示与当前用户有关的内容。这样我们可以显著缩短首次渲染页面的时间。</p>
 <h2 id="1-什么是关键渲染路径？"><a href="#1-什么是关键渲染路径？" class="headerlink" title="1.什么是关键渲染路径？"></a>1.什么是关键渲染路径？</h2><p>从收到HTML,CSS,JavaScript到进行处理，从而转变成渲染像素这一过程中的<strong>中间步骤</strong>就是<strong>关键渲染路径</strong>。</p>
 <p>  关键渲染路经主要包括：   </p>
 <ul>
@@ -121,7 +121,7 @@
 </ul>
 <p>此时，因为JS不是首次渲染的关键资源，变为异步加载后，浏览器在等待脚本可用期间不会阻止DOM树。即此时JS已经不算是关键资源。  </p>
 <ul>
-<li>优化<strong>关键字节</strong>数以缩短下载时间。即，采用<a href="./性能优化之优化加载资源.md">优化加载资源</a>的方法去优化关键字节数。   </li>
+<li>优化<strong>关键字节</strong>数以缩短下载时间。即，采用<a href="/2017/08/20/性能优化之优化加载资源/" title="性能优化之优化加载资源">性能优化之优化加载资源</a>的方法去优化关键字节数。   </li>
 <li>优化<strong>关键资源</strong>的加载顺序，今早下载所有关键资源，以缩短关键路径长度。   </li>
 </ul>
 <p> 注释：</p>
@@ -134,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/" data-id="cj708ow600001kgmg3qy4rv7y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/31/性能优化之优化关键渲染路径/" data-id="cj708yccr000114mgo9qu9gw8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渲染路径/">渲染路径</a></li></ul>
