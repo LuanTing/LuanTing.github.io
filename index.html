@@ -95,32 +95,16 @@
 <li><strong>Style</strong>。基本上是计算哪些元素应用那些规则的过程。</li>
 <li><strong>Layout</strong>。这一过程是<strong>布局</strong>（注释：在Firefox中成为<strong>自动重排（Reflow）</strong>）。布局过程开要计算元素要占据的空间大小及其在屏幕上的位置。网页的布局模式意味着一个元素可能影响其他元素。布局的作用范围一般是整个文档。实际过程中，触发布局而引发卡顿的可能非常大，我们应<strong>尽量避免触发布局</strong>。</li>
 <li><strong>Paint</strong>。是<strong>填充像素</strong>的过程。Paint包括元素的可视化部分，如：文本颜色，背景图片，阴影等。一般是在多个层上完成。</li>
-<li><strong>Composite</strong>。这一过程是保证需要各个部分按照正确顺序绘制到屏幕上。对于重叠的元素正确出现在屏幕上非常重要。我们可以姑且将它叫做<strong>“合成”</strong>。<h2 id="在像素管道中我们可以做什么来避免卡顿"><a href="#在像素管道中我们可以做什么来避免卡顿" class="headerlink" title="在像素管道中我们可以做什么来避免卡顿"></a>在像素管道中我们可以做什么来避免卡顿</h2></li>
-<li><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3></li>
+<li><strong>Composite</strong>。这一过程是保证需要各个部分按照正确顺序绘制到屏幕上。对于重叠的元素正确出现在屏幕上非常重要。我们可以姑且将它叫做<strong>“合成”</strong>。<h2 id="在像素管道中我们可以做什么来避免卡顿"><a href="#在像素管道中我们可以做什么来避免卡顿" class="headerlink" title="在像素管道中我们可以做什么来避免卡顿"></a>在像素管道中我们可以做什么来避免卡顿</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3></li>
 </ol>
 <ul>
 <li>对于动画效果实现，避免使用<code>setTimeout()</code>和<code>setInterval()</code>,请用<code>requestAnimationFrame()</code>。<br>因为：<br>当屏幕正在发生视觉变化时，保证 JavaScript 在帧开始时运行的唯一方式是使用 <code>requestAnimationFrame()</code>。而使用 <code>setTimeout()</code> 或 <code>setInterval()</code> 来执行动画之类的视觉变化，回调将在帧中的某个时点运行，可能刚好在末尾，而这可能经常会使我们丢失帧，导致卡顿。</li>
-<li>将长时间运行的 JavaScript 从主线程移到<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="external">Web Worker</a>。比如：不需要DOM访问权限的数据遍历或者操作这些纯计算工作。<br>因为：<br>JavaScript 在浏览器的主线程上运行，恰好与样式计算、布局以及许多情况下的绘制一起运行。如果 JavaScript 运行时间过长，就会阻塞这些其他工作，可能导致帧丢失。</li>
-</ul>
-<ol>
-<li><h3 id="Style"><a href="#Style" class="headerlink" title="Style"></a>Style</h3></li>
-</ol>
-<ul>
+<li>将长时间运行的 JavaScript 从主线程移到<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="external">Web Worker</a>。比如：不需要DOM访问权限的数据遍历或者操作这些纯计算工作。<br>因为：<br>JavaScript 在浏览器的主线程上运行，恰好与样式计算、布局以及许多情况下的绘制一起运行。如果 JavaScript 运行时间过长，就会阻塞这些其他工作，可能导致帧丢失。<h3 id="Style"><a href="#Style" class="headerlink" title="Style"></a>Style</h3></li>
 <li>降低选择器的复杂性</li>
-<li>减少必须计算样式元素的数量。<br>因为：<br>这样可以减少计算复杂度，从而节约时间。</li>
-</ul>
-<ol>
-<li><h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3></li>
-</ol>
-<ul>
+<li>减少必须计算样式元素的数量。<br>因为：<br>这样可以减少计算复杂度，从而节约时间。<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3></li>
 <li>尽量避免布局操作，尤其是在高压力点期间尝试<strong>完全避免触发布局</strong>。<br>因为：<br>布局总是作用到整个文档，如果有大量元素，需要很长时间来算出所有元素的位置和尺寸。</li>
 <li><strong>新版Flexbox</strong>比基于浮动的布局模型更快。 </li>
-<li>先读取样式，再改变样式（涉及高宽，位置等会触发Layout等样式）。<br>首先 JavaScript 运行，然后计算样式，然后布局。但是，可以使用 JavaScript 强制浏览器提前执行布局。这被称为<strong>强制同步布局</strong>。<br> 因为:<br>在 JavaScript 运行时，来自上一帧的所有旧布局值是已知的，并且可供查询。如果在请求高度之前改变了样式，为了回答高度问题，浏览器必须先应用样式更改，然后运行布局。这时它才能返回正确的高度。这是不必要的，并且可能是开销很大的工作。</li>
-</ul>
-<ol>
-<li>Paint&amp;Composite。</li>
-</ol>
-<ul>
+<li>先读取样式，再改变样式（涉及高宽，位置等会触发Layout等样式）。<br>首先 JavaScript 运行，然后计算样式，然后布局。但是，可以使用 JavaScript 强制浏览器提前执行布局。这被称为<strong>强制同步布局</strong>。<br> 因为:<br>在 JavaScript 运行时，来自上一帧的所有旧布局值是已知的，并且可供查询。如果在请求高度之前改变了样式，为了回答高度问题，浏览器必须先应用样式更改，然后运行布局。这时它才能返回正确的高度。这是不必要的，并且可能是开销很大的工作。<h3 id="Paint-amp-Composite。"><a href="#Paint-amp-Composite。" class="headerlink" title="Paint&amp;Composite。"></a>Paint&amp;Composite。</h3></li>
 <li>除了<code>transform</code>和<code>opacity</code>属性之外，更改任何属性始终都会触发绘制。绘制通常是像素管道开销最大的部分，应尽可能避免。   <img src="/2017/06/12/性能优化之像素管道/sec.PNG" alt="transforms和opacity" title="transforms和opacity"></li>
 <li>通过层的提升和动画的编排来减少绘制区域。    <img src="/2017/06/12/性能优化之像素管道/tri.PNG" alt="支持will-change提升层的方法" title="支持will-change提升层的方法">
 <img src="/2017/06/12/性能优化之像素管道/for.PNG" alt="对于不支持will-change提升层的方法" title="对于不支持will-change提升层的方法">
@@ -130,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/12/性能优化之像素管道/" data-id="cj7iifiqn0004gkmgyaomm36c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/12/性能优化之像素管道/" data-id="cj7iiiyhl0003vomgpnq2mr15" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/像素管道/">像素管道</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卡顿/">卡顿</a></li></ul>
@@ -203,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/31/性能优化之优化关键渲染路径/" data-id="cj7iifiq70001gkmg2007gbhp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/31/性能优化之优化关键渲染路径/" data-id="cj7iiiyhl0000vomgmcanxrgn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渲染路径/">渲染路径</a></li></ul>
@@ -256,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/23/性能优化之优化加载资源/" data-id="cj7iifiqn0003gkmgr46h3rrw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/23/性能优化之优化加载资源/" data-id="cj7iiiyi10004vomgndbqrw4k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/压缩与缓存/">压缩与缓存</a></li></ul>
@@ -315,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/RAIL评估模型/" data-id="cj7iifiq70000gkmg6id5aera" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/19/RAIL评估模型/" data-id="cj7iiiyhl0001vomgb5qse5pe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RAIL模型/">RAIL模型</a></li></ul>
